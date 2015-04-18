@@ -11,6 +11,8 @@ end
 group :development do
   gem 'sqlite3'
 end
+# User pry
+gem 'pry-rails'
 # Use bootstrap
 gem 'bootstrap-sass'
 # Use SCSS for stylesheets
