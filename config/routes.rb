@@ -4,6 +4,11 @@ Rails.application.routes.draw do
 
   resources :advertisements
 
+  resources :questions do
+    put :resolve
+  end  
+
+
   get 'about' => 'welcome#about'
 
   get 'welcome/contact'

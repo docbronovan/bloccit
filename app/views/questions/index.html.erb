@@ -1,0 +1,12 @@
+<h4><%= link_to "Create a New Question", controller: "questions", action: "new" %></h2>
+<h1>All Questions</h1>
+<% @questions.each do |question| %>
+  <div class="media">
+    <div class="media-body">
+      <h4 class="media-heading">
+
+      <%= link_to question.title, question %>
+      </h4>
+    </div>
+  </div>
+<% end %>
