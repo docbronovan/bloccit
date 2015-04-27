@@ -11,6 +11,8 @@ end
 group :development do
   gem 'sqlite3'
 end
+# devise authentication
+gem 'devise'
 # User pry
 gem 'pry-rails'
 # Use bootstrap
