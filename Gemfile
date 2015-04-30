@@ -11,6 +11,8 @@ end
 group :development do
   gem 'sqlite3'
 end
+# store credentials as enviornment variables
+gem 'figaro', '1.0'
 # devise authentication
 gem 'devise'
 # User pry
