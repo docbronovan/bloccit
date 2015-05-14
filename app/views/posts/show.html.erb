@@ -14,5 +14,10 @@
 
 <br>
 <div>
+<% if @summary %>
   <%=link_to "Summary", topic_post_summary_path(@topic, @post, @summary), class: 'btn btn-info' %>
+  <% else %>
+  <%= link_to "Create Summary", new_topic_post_summary_path(@topic, @post, Summary.new), class:'btn btn-info' %>
+
+  <% end %>
   <div>

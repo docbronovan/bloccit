@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = Post.find(params[:id])
     @topic = Topic.find(params[:topic_id])
     #@summary = Summary.find_by post_id: Post.find(params[:id]).id
-    @summary = @post.summary
+    @summary = @post.summary if @post.summary
   end
 
   def new
@@ -23,7 +23,7 @@ class PostsController < ApplicationController
     authorize @post
     if @post.save
       flash[:notice] = "Post was saved."
-      redirect_to @post
+      redirect_to [@topic,@post]
     else
       flash[:error] = "There was an error saving the post. Please try again."
     end
