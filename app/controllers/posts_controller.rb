@@ -24,7 +24,7 @@ class PostsController < ApplicationController
       redirect_to [@topic,@post]
     else
       flash[:error] = "There was an error saving the post. Please try again."
-      #redirect_to @topic
+      redirect_to @topic #added by me so I dont get template error
     end
   end
 
