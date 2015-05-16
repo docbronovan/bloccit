@@ -78,7 +78,7 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
 
   # http://bloccit.herokuapp.com
-  config.action_mailer.default_url_options = { host: 'bloccit.herokuapp.com'}
+  config.action_mailer.default_url_options = { host: 'brockdonovan-bloccit.herokuapp.com'}
 
   # Force all access to the app over SSL, user Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
