@@ -1,4 +1,5 @@
 <br>
+<% unless current_user %>
 <div class="jumbotron">
   <h1>Bloccit</h1>
   <p>Bloccit is a resource for sharing links with your friends!</p>
@@ -7,7 +8,16 @@
     <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
   </p>
 </div>
-
+<% else %>
+<div class="jumbotron">
+  <h1>Bloccit</h1>
+  <p>Bloccit is a resource for sharing links with your friends!</p>
+  <p>
+    Go checkout some <%= link_to "Topics", topics_path %>
+  </p>
+</div>
+</div>
+<% end %>
 <div class="row">
   <div class="col-md-4">
     <h2>Solves world hunger</h2>
