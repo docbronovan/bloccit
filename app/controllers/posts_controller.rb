@@ -17,14 +17,16 @@ class PostsController < ApplicationController
 
   def create
     @topic = Topic.find(params[:topic_id])
+    
     @post = current_user.posts.build(post_params)
     authorize @post
+    @post.topic = @topic
     if @post.save
       flash[:notice] = "Post was saved."
-      redirect_to [@topic,@post]
+      redirect_to [@topic]
     else
       flash[:error] = "There was an error saving the post. Please try again."
-      redirect_to @topic #added by me so I dont get template error
+      render :new #added by me so I dont get template error
     end
   end
 
@@ -46,6 +48,8 @@ class PostsController < ApplicationController
       render :edit
     end
   end
+
+  private
 
   def post_params
     params.require(:post).permit(:title, :body)
