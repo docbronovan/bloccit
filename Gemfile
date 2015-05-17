@@ -11,6 +11,9 @@ end
 group :development do
   gem 'sqlite3'
 end
+# reder input in markdowm
+gem 'redcarpet'
+
 # authorize different users for different tasks
 gem 'pundit'
 # store credentials as enviornment variables
