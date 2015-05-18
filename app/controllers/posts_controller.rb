@@ -3,6 +3,7 @@ class PostsController < ApplicationController
   #  @posts = Post.all
   #  authorize @posts
   #end
+  
 
   def show
     @post = Post.find(params[:id])
@@ -53,5 +54,19 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:title, :body)
+  end
+
+  def markdown_title(markdown)
+     renderer = Redcarpet::Render::HTML.new
+     extensions = {fenced_code_blocks: true}
+     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+     (redcarpet.render markdown).html_safe 
+  end
+
+  def markdown_body(markdown)
+     renderer = Redcarpet::Render::HTML.new
+     extensions = {fenced_code_blocks: true}
+     redcarpet = Redcarpet::Markdown.new(renderer, extensions)
+     (redcarpet.render markdown).html_safe 
   end
 end
