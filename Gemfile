@@ -11,9 +11,14 @@ end
 group :development do
   gem 'sqlite3'
 end
+# S3 uploader
+gem 'fog'
+# uploading software
+gem 'carrierwave'
+# manipulating images
+gem 'mini_magick'
 # reder input in markdowm
 gem 'redcarpet'
-
 # authorize different users for different tasks
 gem 'pundit'
 # store credentials as enviornment variables
