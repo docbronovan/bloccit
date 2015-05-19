@@ -11,6 +11,9 @@ end
 group :development do
   gem 'sqlite3'
 end
+# pagination
+gem 'will_paginate', '~> 3.0.5'
+
 # S3 uploader
 gem 'fog', '1.24'
 # uploading software
