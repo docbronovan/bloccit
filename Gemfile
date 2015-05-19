@@ -12,7 +12,7 @@ group :development do
   gem 'sqlite3'
 end
 # S3 uploader
-gem 'fog'
+gem 'fog', '1.24'
 # uploading software
 gem 'carrierwave'
 # manipulating images
