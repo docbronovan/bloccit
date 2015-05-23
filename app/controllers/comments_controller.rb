@@ -2,8 +2,8 @@ class CommentsController < ApplicationController
 
   def create
     @post = Post.find(params[:post_id])
-    @comment = @post.comments.build(params.require(:comment).permit(:body))
-    
+    @comment = current_user.comments.build(params.require(:comment).permit(:body))
+    @comment.post = @post
     if @comment.save
       flash[:notice] = "Comment was saved."
       redirect_to [@post.topic, @post]
