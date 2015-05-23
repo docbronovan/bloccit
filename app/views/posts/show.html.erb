@@ -10,11 +10,13 @@
        <%= @post.user.name %>
      </small>
     <p><%= markdown_to_html @post.body %></p>
-    <h3>Enter comment below</h3>
-    <p><%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: Comment.new} %></p>
+    <% if policy(@post).edit? %>
+      <h3>Enter comment below</h3>
+      <p><%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: Comment.new} %></p>
+    <% end %>
     <p><strong>Comments</strong><p>
     <p><%= render @comments %></p>
-        
+    
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
