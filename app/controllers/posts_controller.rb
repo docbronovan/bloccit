@@ -23,8 +23,9 @@ class PostsController < ApplicationController
     authorize @post
     @post.topic = @topic
     if @post.save
+      @post.create_vote
       flash[:notice] = "Post was saved."
-      redirect_to [@topic]
+      redirect_to [@topic, @post]
     else
       flash[:error] = "There was an error saving the post. Please try again."
       render :new #added by me so I dont get template error

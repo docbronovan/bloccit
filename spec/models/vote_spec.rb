@@ -1,19 +1,32 @@
 require 'rails_helper'
 require 'rspec-rails'
 describe Vote, type: :model do
-  describe "validations" do 
-    before do 
-      @post = Post.create(title: 'post title', body: 'Post bodies must be pretty long.')
-      3.times { @post.votes.create(value: 1) }
-      2.times { @post.votes.create(value: -1) }
-    end
-    describe "value validations" do 
-      it "only allows -1 or 1 as values" do 
-        #your expectations here
-        @post.votes.each do |vote|
-          expect(vote.value).to eq(1).or eq(-1)
-        end
+  
+  include TestFactories
+  
+  describe "validations" do
+     describe "value validation" do
+      it "only allows -1 or 1 as values" do
+        up_vote = Vote.new(value: 1)
+        expect(up_vote.valid?).to eq(true)
+
+        down_vote = Vote.new(value: -1)
+        expect(down_vote.valid?).to eq(true)
+
+        invalid_vote = Vote.new(value: 2)
+        expect(invalid_vote.valid?).to eq(false)
       end
     end
   end
+
+  describe 'after_save' do
+    it "calls `Post#update_rank` after save" do
+      #post = associated_post
+      @post = associated_post
+      vote = Vote.new(value: 1, post: @post)
+      expect(@post).to receive(:update_rank)
+      vote.save
+    end
+  end
+
 end
