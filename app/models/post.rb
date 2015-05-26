@@ -39,4 +39,11 @@ class Post < ActiveRecord::Base
 
   default_scope { order('rank DESC') }
   
+  def save_with_initial_vote #both save the post and create its vote inside a transaction
+    ActiveRecord::Base.transaction do
+      self.save
+      self.create_vote
+    end
+  end
+
 end
