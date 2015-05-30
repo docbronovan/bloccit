@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-descibe User do 
+describe User do 
   
   include TestFactories
 
