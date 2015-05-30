@@ -11,7 +11,7 @@
  
      describe "publicly_viewable" do
        it "returns a relation of all public topics" do
-         expect(Topic.publicly_viewable).to eq( @public_topic )
+         expect(Topic.publicly_viewable).to eq( [@public_topic] )
        end
      end
  
@@ -26,11 +26,13 @@
        it "returns all topics if the user is present" do
          user = true # sneaky solution; we don't need a real user, just something truthy
          # Your code here
-         expect()
+         expect(Topic.visible_to(user)).to  eq( [@public_topic, @private_topic] )
        end
  
        it "returns only public topics if user is nil" do
          # Your code here
+         user = nil
+         expect(Topic.visible_to(user)).to eq([@public_topic])
 
        end
      end
