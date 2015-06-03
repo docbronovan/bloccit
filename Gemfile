@@ -8,14 +8,12 @@ group :production do
   gem 'pg'
   gem 'rails_12factor'
   gem 'newrelic_rpm'
-  gem 'puma'
 end
 group :development do
   gem 'sqlite3'
   gem 'binding_of_caller'
   gem 'better_errors'
   #gem 'thin'
-  gem 'puma'
 end
 group :development, :test do
   gem 'rspec-rails', '~> 3.0'
@@ -23,10 +21,10 @@ group :development, :test do
   gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
+  gem 'factory_girl_rails', '~> 4.0'
 end
 # puma
 gem 'puma'
-
 # pagination
 gem 'will_paginate', '~> 3.0.5'
 
