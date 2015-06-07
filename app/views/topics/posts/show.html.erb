@@ -1,6 +1,6 @@
 <br>
 <%=link_to "Back to posts", topic_path(@topic) %>
-
+ <h2>Comments</h2>
 
 <div class="row">
   <div class="col-md-8">
@@ -14,11 +14,15 @@
     <p><%= markdown_to_html @post.body %></p>
     <% if current_user.present? %>
       <h3>Enter comment below</h3>
-      <p><%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: Comment.new} %></p>
+      <p><strong>Comments</strong><p>
+      <div class='js-comments'>
+        <p><%= render partial: 'comments/comment', collection: @comments %></p>
+      </div>
+      <div class='new-comment'>
+        <p><%= render partial: "comments/form", locals: {topic: @topic, post: @post, comment: Comment.new} %></p>
+      </div>
     <% end %>
-    <p><strong>Comments</strong><p>
-    <p><%= render partial: 'comments/comment', collection: @comments %></p>
-    
+
   </div>
   <div class="col-md-4">
     <% if policy(@post).edit? %>
