@@ -8,7 +8,6 @@
       <%= link_to "Sign Up", new_user_registration_path, class: 'btn btn-primary' %> today!
     </p>
    <br> 
-   <%= render "welcome"%>
   </div>
 <% else %>
   <div class="jumbotron">
@@ -18,8 +17,9 @@
       Go checkout some <%= link_to "Topics", topics_path %>
     </p>
   <br>
-   <%= render "welcome"%>
   </div>
 <% end %>
+
+<%= render "welcome"%>
 <br>
 <br>
